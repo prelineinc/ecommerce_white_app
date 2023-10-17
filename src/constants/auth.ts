@@ -1,0 +1,1 @@
+export const SuccessLogin = "User Successfully Logged In";
