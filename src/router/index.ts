@@ -12,7 +12,17 @@ const routes= [
     path: '/',
     component: () => import('../app/admin/adminLayout.vue'),
     //children: [{ path: '', component: () => import('../pages/admin/IndexPage.vue') }],
-    children: [{ path: '', component: () => import('../pages/admin/DashBoard.vue')}],
+    children: [
+      { path: '', component: () => import('../pages/admin/DashBoard.vue')},
+    ],
+  },
+
+  {
+    path: '/category',
+    component: () => import('../app/admin/adminLayout.vue'),
+    children: [
+      {path: '', component: () => import('../pages/admin/CategoryPage.vue')}
+    ],
   },
 
   // Always leave this as last one,

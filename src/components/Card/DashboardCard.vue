@@ -1,6 +1,6 @@
 <template>
-  <div class="q-mx-sm row">
-    <div class="q-pa-sm col-3" v-for="(card, index) in items" :key="index">
+  <div class=" row">
+    <div class="q-pa-xs col-3" v-for="(card, index) in items" :key="index">
       <q-card class=" my-card">
       <q-img :src="card.image">
         <div class="absolute-bottom text-center" >
