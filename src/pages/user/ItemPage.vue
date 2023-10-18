@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="col-12 col-md-10">
-        <WhiteCard />
+        <WhiteCard @click="productPage"/>
       </div>
     </div>
   </div>
@@ -62,6 +62,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import WhiteCard from '../../components/Card/WhiteCard.vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'CategoryPage',
@@ -69,7 +70,14 @@ export default defineComponent({
     WhiteCard,
   },
   setup() {
-    return {
+    const router = useRouter();
+
+    const productPage = () => {
+      router.push('product');
+    };
+
+    return{
+      productPage,
       check1: ref(true),
       check2: ref(false),
       check3: ref(false),
