@@ -5,22 +5,22 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from 'vue-router';
+import routes from './routes'
 
+// const routes= [
+//   { 
+//     path: '/',
+//     component: () => import('../app/admin/adminLayout.vue'),
+//     children: [{ path: '', component: () => import('../pages/admin/IndexPage.vue') }],
+//   },
 
-const routes= [
-  {
-    path: '/',
-    component: () => import('../app/admin/adminLayout.vue'),
-    children: [{ path: '', component: () => import('../pages/admin/IndexPage.vue') }],
-  },
-
-  // Always leave this as last one,
-  // but you can also remove it
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
-  },
-];
+//   // Always leave this as last one,
+//   // but you can also remove it
+//   {
+//     path: '/:catchAll(.*)*',
+//     component: () => import('pages/ErrorNotFound.vue'),
+//   },
+// ];
 
 /*
  * If not building with SSR mode, you can
