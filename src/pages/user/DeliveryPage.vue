@@ -1,5 +1,5 @@
 <template>
-  <div>Item Page</div>
+  <div>Delivery Page</div>
 </template>
 
 <script>
