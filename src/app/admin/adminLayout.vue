@@ -41,20 +41,29 @@
           </q-btn-dropdown>
         </q-tabs> -->
 
-      <q-btn color="primary" flat @mouseleave="kids = false" @mouseover="woman = true" label="Woman" no-caps>
-      <q-menu v-model="woman" @mouseleave="woman = false"  fit>
-          <q-list style="min-width: 100px">
-            <q-item clickable>
-              <q-item-section>Sarees</q-item-section>
-            </q-item>
-            <q-item clickable>
-              <q-item-section>Kurtas</q-item-section>
-            </q-item>
-          </q-list>
-        </q-menu>
-       </q-btn>
+        <q-btn color="primary" flat @mouseover="pages = true" label="Pages" no-caps>
+          <q-menu v-model="pages" @mouseleave="pages = false" fit>
+            <q-list style="min-width: 100px">
+              <q-item clickable @click="productPage('item')">
+                <q-item-section>Item</q-item-section>
+              </q-item>
+              <q-item clickable @click="productPage('category')">
+                <q-item-section>Category</q-item-section>
+              </q-item>
+              <q-item clickable @click="productPage('product')">
+                <q-item-section>Product</q-item-section>
+              </q-item>
+              <q-item clickable @click="productPage('coupon')">
+                <q-item-section>Coupon</q-item-section>
+              </q-item>
+              <q-item clickable @click="productPage('offer')">
+                <q-item-section>Offer</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
 
-       <q-btn color="primary" flat @mouseleave="woman = false" @mouseover="kids = true" label="Kids" no-caps>
+        <!-- <q-btn color="primary" flat @mouseleave="woman = false" @mouseover="kids = true" label="Kids" no-caps>
       <q-menu v-model="kids" @mouseleave="kids = false"  fit>
           <q-list style="min-width: 100px">
             <q-item clickable>
@@ -65,10 +74,10 @@
             </q-item>
           </q-list>
         </q-menu>
-       </q-btn>
+       </q-btn> -->
 
-      <q-input dense borderless v-model="text" input-class="text-left" class="q-mx-lg q-px-md search-bar" placeholder="Search Products"
-      style="width: 35%;">
+        <q-input dense borderless v-model="text" input-class="text-left" class="q-mx-lg q-px-md search-bar"
+          placeholder="Search Products" style="width: 35%;">
           <template v-slot:append>
             <q-icon v-if="text === ''" name="search"></q-icon>
             <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''"></q-icon>
@@ -80,22 +89,16 @@
             Profile
           </q-tooltip>
         </q-btn>
-        <q-btn flat round icon="favorite">
+        <!-- <q-btn flat round icon="favorite">
           <q-tooltip>
             Cart
           </q-tooltip>
         </q-btn>
-
-        <!-- <q-btn flat icon="favorite" label="Whichlist" stack no-caps>
-          <q-tooltip >
-          Cart
-        </q-tooltip>
-        </q-btn> -->
         <q-btn flat round icon="shopping_bag">
           <q-tooltip>
             Bag
           </q-tooltip>
-        </q-btn>
+        </q-btn> -->
       </q-toolbar>
     </q-header>
 
@@ -128,6 +131,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import EssentialLink from '../../components/EssentialLink.vue';
+import { useRouter } from 'vue-router';
 
 const essentialLinks: any[] = [
   {
@@ -175,21 +179,26 @@ const essentialLinks: any[] = [
 ];
 
 const text = ref('')
-const woman = ref(false)
-const kids = ref(false)
+const pages = ref(false)
+const kids = ref(false);
+const router = useRouter();
 
 // const leftDrawerOpen = ref(false)
 
 // function toggleLeftDrawer() {
 //   leftDrawerOpen.value = !leftDrawerOpen.value
 // }
+function productPage(message: string) {
+  // Access the event target value
+  router.push(message);
+}
 </script>
 
 <style scoped>
-  .search-bar {
-    width: 35%;
-    background: #e0e0e078;
-    border-radius: 50px;
-    border: 1px solid #e0e0e075;
-  }
+.search-bar {
+  width: 35%;
+  background: #e0e0e078;
+  border-radius: 50px;
+  border: 1px solid #e0e0e075;
+}
 </style>

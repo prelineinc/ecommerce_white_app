@@ -1,178 +1,60 @@
 <template>
-  <div>
-    <!-- <div >
-         <q-list bordered padding>
-       <q-item tag="label" v-ripple>
-         <q-item-section side top>
-           <q-checkbox v-model="check1"></q-checkbox>
-         </q-item-section>
-
-         <q-item-section>
-           <q-item-label>Notifications</q-item-label>
-           <q-item-label caption>
-             Notify me about updates to apps or games that I downloaded
-           </q-item-label>
-         </q-item-section>
-       </q-item>
-
-       <q-item tag="label" v-ripple>
-         <q-item-section side top>
-           <q-checkbox v-model="check2"></q-checkbox>
-         </q-item-section>
-
-         <q-item-section>
-           <q-item-label>Notifications</q-item-label>
-           <q-item-label caption>
-             Notify me about updates to apps or games that I downloaded
-           </q-item-label>
-         </q-item-section>
-       </q-item>
-     </q-list>
-      </div> -->
-    <!-- <WhiteCard />
-    <WhiteCard />
-    <WhiteCard />
-    <WhiteCard /> -->
-    <!-- <div class="col-3 q-pa-xs">
-          <q-card class="my-card" flat bordered>
-          <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
-          <q-card-section class="q-pt-sm">
-            <div class="text-h6 ellipsis">
-                Fashion
-              </div>
-            <div class="text-caption text-grey">
-              Small plates, salads & sandwiches in an intimate setting.
+  <q-layout view="lHh Lpr lFf">
+    <q-page>
+      <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="300">
+        <div class="q-ma-md">
+          <q-form @submit.prevent="onSubmit">
+            <q-input filled v-model="name" label="Title*" lazy-rules
+              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+            <q-input filled v-model="description" label="Description*" lazy-rules
+              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+            <q-input filled v-model="amount" label="Amount*" lazy-rules
+              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+            <div class="q-my-md">
+              <q-btn class="full-width" label="Submit" type="submit" color="primary"></q-btn>
             </div>
-            <div class="text-subtitle1 text-weight-bold">
-              Rs. 1200
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
-      <div class="col-3 q-pa-xs">
-          <q-card class="my-card" flat bordered>
-          <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
-          <q-card-section class="q-pt-sm">
-            <div class="text-h6 ellipsis">
-                Fashion
-              </div>
-            <div class="text-caption text-grey">
-              Small plates, salads & sandwiches in an intimate setting.
-            </div>
-            <div class="text-subtitle1 text-weight-bold">
-              Rs. 1200
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
-      <div class="col-3 q-pa-xs">
-          <q-card class="my-card" flat bordered>
-          <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
-          <q-card-section class="q-pt-sm">
-            <div class="text-h6 ellipsis">
-                Fashion
-              </div>
-            <div class="text-caption text-grey">
-              Small plates, salads & sandwiches in an intimate setting.
-            </div>
-            <div class="text-subtitle1 text-weight-bold">
-              Rs. 1200
-            </div>
-          </q-card-section>
-        </q-card>
-      </div><div class="col-3 q-pa-xs">
-          <q-card class="my-card" flat bordered>
-          <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
-          <q-card-section class="q-pt-sm">
-            <div class="text-h6 ellipsis">
-                Fashion
-              </div>
-            <div class="text-caption text-grey">
-              Small plates, salads & sandwiches in an intimate setting.
-            </div>
-            <div class="text-subtitle1 text-weight-bold">
-              Rs. 1200
-            </div>
-          </q-card-section>
-        </q-card>
-      </div> -->
 
-
-    <div class="row">
-      <div class="col-12 col-md-2 q-pa-md">
-        <div>
-          <div class="text-h6">Category</div>
-          <q-list bordered padding>
-            <q-item tag="label" v-ripple>
-              <q-item-section side top>
-                <q-checkbox v-model="check1"></q-checkbox>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Chuti</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-item tag="label" v-ripple>
-              <q-item-section side top>
-                <q-checkbox v-model="check2"></q-checkbox>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Saree</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
+          </q-form>
         </div>
-
-        <div>
-          <div class="text-h6">Size</div>
-          <q-list bordered padding>
-            <q-item tag="label" v-ripple>
-              <q-item-section side top>
-                <q-checkbox v-model="check1"></q-checkbox>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Small</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-item tag="label" v-ripple>
-              <q-item-section side top>
-                <q-checkbox v-model="check2"></q-checkbox>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label>Medium</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
+      </q-drawer>
+      <q-page-container class="q-my-md">
+        <div class="q-mr-md row" style="display: flex; justify-content: space-between;">
+          <div class="text-h6 q-mx-md">
+            Category List
+          </div>
+          <q-btn outline icon="add" style="color: #9e9e9e;" label="Add" @click="handleClick"></q-btn>
         </div>
-      </div>
-      <div class="col-12 col-md-10">
-        <WhiteCard />
-      </div>
-    </div>
-  </div>
+        <WhiteTable />
+      </q-page-container>
+    </q-page>
+  </q-layout>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import WhiteCard from '../../components/Card/WhiteCard.vue';
+import WhiteTable from '../../components/Table/WhiteTable.vue';
 
 export default defineComponent({
-  name: 'CategoryPage',
+  name: 'IndexPage',
   components: {
-    WhiteCard,
+    WhiteTable,
   },
   setup() {
-    return {
-      check1: ref(true),
-      check2: ref(false),
-      check3: ref(false),
-    }
-  },
+    const leftDrawerOpen = ref(false);
+    const name = ref(null);
+    const description = ref(null);
+    const amount = ref(null);
 
-})
+    const handleClick = () => {
+      // Your click event logic goes here
+      console.log('Button clicked!');
+      leftDrawerOpen.value = !leftDrawerOpen.value
+    };
+
+    const onSubmit = () => {
+      console.log('submit');
+    }
+    return { leftDrawerOpen, name, description, amount, handleClick, onSubmit };
+  },
+});
 </script>

@@ -44,7 +44,7 @@
           </template>
         </q-input>
 
-        <q-btn flat round icon="person">
+        <q-btn flat round icon="person" @click="profilePage">
           <q-tooltip>
             Profile
           </q-tooltip>
@@ -54,7 +54,7 @@
             Cart
           </q-tooltip>
         </q-btn>
-        <q-btn flat round icon="shopping_bag">
+        <q-btn flat round icon="shopping_bag" @click="cartPage">
           <q-tooltip>
             Bag
           </q-tooltip>
@@ -86,6 +86,12 @@ const homePage = () => {
 }
 const productPage = () => {
   router.push('wishlist');
+}
+const cartPage = () => {
+  router.push('cart');
+}
+const profilePage = () => {
+  router.push('profile');
 }
 </script>
 

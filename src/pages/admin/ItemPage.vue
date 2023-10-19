@@ -1,31 +1,33 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page>
-    <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="300">
-      <div class="q-ma-md">
-        <q-form @submit.prevent="onSubmit">
-          <q-input filled v-model="name" label="Title*" lazy-rules
-            :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+      <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="300">
+        <div class="q-ma-md">
+          <q-form @submit.prevent="onSubmit">
+            <q-input filled v-model="name" label="Title*" lazy-rules
+              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
             <q-input filled v-model="description" label="Description*" lazy-rules
-            :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
             <q-input filled v-model="amount" label="Amount*" lazy-rules
-            :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
             <div class="q-my-md">
               <q-btn class="full-width" label="Submit" type="submit" color="primary"></q-btn>
             </div>
 
-        </q-form>
-      </div>
-    </q-drawer>
-    <q-page-container class="q-my-md">
-      <div class="q-mr-md row" style="justify-content: flex-end;">
-        <q-btn outline icon="add" style="color: #9e9e9e;" label="Add" @click="handleClick"></q-btn>
-      </div>
-      <WhiteTable />
-    </q-page-container>
-  </q-page>
+          </q-form>
+        </div>
+      </q-drawer>
+      <q-page-container class="q-my-md">
+        <div class="q-mr-md row" style="display: flex; justify-content: space-between;">
+          <div class="text-h6 q-mx-md">
+            Item List
+          </div>
+          <q-btn outline icon="add" style="color: #9e9e9e;" label="Add" @click="handleClick"></q-btn>
+        </div>
+        <WhiteTable />
+      </q-page-container>
+    </q-page>
   </q-layout>
-
 </template>
 
 <script lang="ts">
