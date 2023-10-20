@@ -1,0 +1,478 @@
+// Colors.scss
+
+// Greys
+$white: #ffffff;
+$bb-grey-10: #f7fafd;
+$frost-grey: #f7fafd;
+$bb-grey-20: #f4f8fb;
+$bb-grey-30: #f1f5f7;
+$bb-grey-40: #edf1f4;
+$bb-grey-50: #e8ecef;
+$bb-grey-80: #d4d7d9;
+$bb-grey-110: #b3b6b8;
+$bb-grey-130: #959899;
+$bb-grey-150: #717274;
+$bb-grey-160: #5c5d5e;
+$bb-grey-170: #464747;
+$bb-grey-180: #2f2f30;
+$bb-grey-190: #171718;
+
+$greys: (
+  'white': $white,
+  'bb-grey-10': $bb-grey-10,
+  'frost-grey': $frost-grey,
+  'bb-grey-20': $bb-grey-20,
+  'bb-grey-30': $bb-grey-30,
+  'bb-grey-40': $bb-grey-40,
+  'bb-grey-50': $bb-grey-50,
+  'bb-grey-80': $bb-grey-80,
+  'bb-grey-110': $bb-grey-110,
+  'bb-grey-130': $bb-grey-130,
+  'bb-grey-150': $bb-grey-150,
+  'bb-grey-160': $bb-grey-160,
+  'bb-grey-170': $bb-grey-170,
+  'bb-grey-180': $bb-grey-180,
+  'bb-grey-190': $bb-grey-190,
+);
+
+// Blues
+$bb-0: #f2f9ff;
+$bb-2-5: #eaf6ff;
+$bb-10: #d2ecff;
+$bb-30: #96d0fc;
+$bb-50: #5fb3f5; // Info
+$bb-100: #0073cf; // Secondary
+$bright-blue: #0073cf;
+$bb-130: #002496; // Primary
+$reflex-blue: #002496;
+$bb-140: #002084;
+$bb-150: #001b71;
+$bb-160: #00165c;
+$midnight-blue: #00165c;
+$bb-170: #001146;
+$bb-180: #000b2f;
+
+$blues: (
+  'bb-0': $bb-0,
+  'bb-2-5': $bb-2-5,
+  'bb-10': $bb-10,
+  'bb-30': $bb-30,
+  'bb-50': $bb-50,
+  'bb-100': $bb-100,
+  'bright-blue': $bright-blue,
+  'bb-130': $bb-130,
+  'reflex-blue': $reflex-blue,
+  'bb-140': $bb-140,
+  'bb-150': $bb-150,
+  'bb-160': $bb-160,
+  'midnight-blue': $midnight-blue,
+  'bb-170': $bb-170,
+  'bb-180': $bb-180,
+);
+
+// Yellows
+$py-2-5: #fffce6;
+$py-30: #ffed7c;
+$py-60: #ffd41c;
+$py-70: #fecb00; // Accent
+$penske-yellow: #fecb00;
+
+$yellows: (
+  'py-2-5': $py-2-5,
+  'py-30': $py-30,
+  'py-60': $py-60,
+  'py-70': $py-70,
+  'penske-yellow': $penske-yellow,
+);
+
+// Others
+$green-0: #f2fff3;
+$green-140: #068a15; // Positive
+$success-green: #068a15;
+$green-170: #02490a;
+$orange-0: #fff9f2;
+$orange-80: #f59006; // Warning
+$warning-orange: #f59006;
+$orange-dark: #d14900;
+$red-0: #fff2f3;
+$red-80: #e32037;
+$red-100: #d0021b; // Negative
+$error-red: #d0021b;
+$data-viz-red: #ed2e55;
+$red-140: #8e0011;
+$dark: #1d1d1d;
+$dark-page: #121212;
+
+$other-colors: (
+  'green-0': $green-0,
+  'green-140': $green-140,
+  'green-170': $green-170,
+  'orange-0': $orange-0,
+  'orange-80': $orange-80,
+  'red-0': $red-0,
+  'red-80': $red-80,
+  'red-100': $red-100,
+  'red-140': $red-140,
+  'orange-dark': $orange-dark,
+  'error-red': $error-red,
+  'warning-orange': $warning-orange,
+  'dark': $dark,
+  'dark-page': $dark-page,
+);
+
+
+$primary: $bb-130;
+$secondary: $bb-100;
+$accent: $py-70;
+
+$positive: $green-140;
+$warning: $orange-80;
+$negative: $red-100;
+$info: $bb-50;
+
+// global color list
+$penske-colors: ($blues, $greys, $yellows, $other-colors);
+
+// creates a text-name and name class for every color in the color map
+@each $color-list in $penske-colors {
+  @each $name, $color in $color-list {
+    .text-#{$name} {
+      color: $color;
+    }
+    .bg-#{$name} {
+      background-color: $color;
+    }
+  }
+}
+
+
+$h1: (
+  size: 1.5rem,
+  line-height: 2.25rem,
+  color: #171718,
+);
+
+$h2: (
+  weight: normal,
+  size: 1.375rem,
+  line-height: 2.063rem,
+  color: #171718,
+);
+
+$h3: (
+  size: 1.125rem,
+  weight: normal,
+  line-height: 1.688rem,
+  color: #171718,
+);
+
+$body1: (
+  size: 1rem,
+  weight: normal,
+  letter-spacing: 0,
+  line-height: 1.5rem,
+  color: #171718,
+);
+
+$body2: (
+  size: 0.875rem,
+  weight: normal,
+  letter-spacing: 0,
+  line-height: 1.5rem,
+  color: #171718,
+);
+
+.text-legal {
+  font-size: 0.75rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+}
+
+// ------------------------ Grid Columns
+$breakpoint-xs: 0px; //---- 4
+$breakpoint-sm: 600px; //-- 8
+$breakpoint-md: 905px; //-- 8
+$breakpoint-lg: 1240px; //- 12
+$breakpoint-xl: 1440px; //- 12
+
+$gutter-xs: 16px;
+$gutter-sm: 24px;
+$gutter-md: 24px;
+$gutter-lg: 24px;
+$gutter-xl: 24px;
+
+$margin-xs: 24px;
+$margin-sm: 32px;
+$margin-md: 32px;
+$margin-lg: 40px;
+$margin-xl: 40px;
+
+$spacing-1: 0.25rem; //- 4px
+$spacing-2: 0.5rem; //-- 8px
+$spacing-3: 0.75rem; //- 12px
+$spacing-4: 1rem; //---- 16px
+$spacing-5: 1.5rem; //-- 24px
+$spacing-6: 2rem; //---- 32px
+$spacing-7: 2.5rem; //-- 40px
+$spacing-8: 3rem; //---- 48px
+$spacing-9: 3.5rem; //-- 56px
+$spacing-10: 4rem; //--- 64px
+$spacing-11: 4.5rem; //- 72px
+$spacing-12: 8rem; //--- 128px
+
+// app.scss
+
+// Global styling
+body {
+  font-family: Avenir, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+// Tooltip styles must be global since they are rendered outside of <body />
+.q-tooltip--style {
+  background: none;
+  padding: 0;
+  margin: 0 0.2rem 0 0;
+  overflow: visible;
+  border-radius: 0.25rem;
+  box-shadow: 0px 3px 6px #00325a33;
+}
+
+// --- Shift Grid Styles ---
+
+// Example use:
+
+// <div class="shift-grid">
+//   <div class="sg-row">
+//     <div class="sg-col-xs-4 sg-col-sm-4 sg-col-md-4 sg-col-lg-3">...</div>
+//     ...
+//   </div>
+// </div>
+
+// XS - Four Columns
+@media (min-width: 0) and (max-width: calc(#{$breakpoint-sm - 1px})) {
+  .shift-grid {
+    padding: $margin-xs;
+    padding-bottom: 6.5rem; // Allows for footer
+    .sg-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: calc(-1 * #{$gutter-xs});
+      margin-top: calc(-1 * #{$gutter-xs});
+      & > div {
+        padding-left: $gutter-xs;
+        padding-top: $gutter-xs;
+      }
+
+      .sg-col-xs-1 {
+        width: 25%;
+      }
+      .sg-col-xs-2 {
+        width: 50%;
+      }
+      .sg-col-xs-3 {
+        width: 75%;
+      }
+      .sg-col-xs-4 {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Small - Eight Columns
+@media (min-width: $breakpoint-sm) and (max-width: calc(#{$breakpoint-md - 1px})) {
+  .shift-grid {
+    padding: $margin-sm;
+    padding-bottom: 6.5rem; // Allows for footer
+    .sg-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: calc(-1 * #{$gutter-sm});
+      margin-top: calc(-1 * #{$gutter-sm});
+      & > div {
+        padding-left: $gutter-sm;
+        padding-top: $gutter-sm;
+      }
+
+      .sg-col-sm-1 {
+        width: 12.5%;
+      }
+      .sg-col-sm-2 {
+        width: 25%;
+      }
+      .sg-col-sm-3 {
+        width: 37.5%;
+      }
+      .sg-col-sm-4 {
+        width: 50%;
+      }
+      .sg-col-sm-5 {
+        width: 62.5%;
+      }
+      .sg-col-sm-6 {
+        width: 75%;
+      }
+      .sg-col-sm-7 {
+        width: 87.5%;
+      }
+      .sg-col-sm-8 {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Medium - Eight Columns
+@media (min-width: $breakpoint-md) and (max-width: calc(#{$breakpoint-lg - 1px})) {
+  .shift-grid {
+    padding: $margin-md;
+    padding-bottom: 6.5rem; // Allows for footer
+    .sg-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: calc(-1 * #{$gutter-md});
+      margin-top: calc(-1 * #{$gutter-md});
+      & > div {
+        padding-left: $gutter-md;
+        padding-top: $gutter-md;
+      }
+
+      .sg-col-md-1 {
+        width: 12.5%;
+      }
+      .sg-col-md-2 {
+        width: 25%;
+      }
+      .sg-col-md-3 {
+        width: 37.5%;
+      }
+      .sg-col-md-4 {
+        width: 50%;
+      }
+      .sg-col-md-5 {
+        width: 62.5%;
+      }
+      .sg-col-md-6 {
+        width: 75%;
+      }
+      .sg-col-md-7 {
+        width: 87.5%;
+      }
+      .sg-col-md-8 {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Large - Twelve Columns
+@media (min-width: $breakpoint-lg) and (max-width: calc(#{$breakpoint-xl - 1px})) {
+  .shift-grid {
+    padding: $margin-lg 4.5rem;
+    padding-bottom: 6.5rem; // Allows for footer
+    .sg-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: calc(-1 * #{$gutter-lg});
+      margin-top: calc(-1 * #{$gutter-lg});
+      & > div {
+        padding-left: $gutter-lg;
+        padding-top: $gutter-lg;
+      }
+
+      .sg-col-lg-1 {
+        width: 8.3333%;
+      }
+      .sg-col-lg-2 {
+        width: 16.6667%;
+      }
+      .sg-col-lg-3 {
+        width: 25%;
+      }
+      .sg-col-lg-4 {
+        width: 33.3333%;
+      }
+      .sg-col-lg-5 {
+        width: 41.6667%;
+      }
+      .sg-col-lg-6 {
+        width: 50%;
+      }
+      .sg-col-lg-7 {
+        width: 58.3333%;
+      }
+      .sg-col-lg-8 {
+        width: 66.6667%;
+      }
+      .sg-col-lg-9 {
+        width: 75%;
+      }
+      .sg-col-lg-10 {
+        width: 83.3333%;
+      }
+      .sg-col-lg-11 {
+        width: 91.6667%;
+      }
+      .sg-col-lg-12 {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Extra Large - Twelve Columns
+@media (min-width: $breakpoint-xl) {
+  .shift-grid {
+    padding: $margin-xl 4.5rem;
+    padding-bottom: 6.5rem; // Allows for footer
+    .sg-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: calc(-1 * #{$gutter-xl});
+      margin-top: calc(-1 * #{$gutter-xl});
+      & > div {
+        padding-left: $gutter-xl;
+        padding-top: $gutter-xl;
+      }
+
+      .sg-col-xl-1 {
+        width: 8.3333%;
+      }
+      .sg-col-xl-2 {
+        width: 16.6667%;
+      }
+      .sg-col-xl-3 {
+        width: 25%;
+      }
+      .sg-col-xl-4 {
+        width: 33.3333%;
+      }
+      .sg-col-xl-5 {
+        width: 41.6667%;
+      }
+      .sg-col-xl-6 {
+        width: 50%;
+      }
+      .sg-col-xl-7 {
+        width: 58.3333%;
+      }
+      .sg-col-xl-8 {
+        width: 66.6667%;
+      }
+      .sg-col-xl-9 {
+        width: 75%;
+      }
+      .sg-col-xl-10 {
+        width: 83.3333%;
+      }
+      .sg-col-xl-11 {
+        width: 91.6667%;
+      }
+      .sg-col-xl-12 {
+        width: 100%;
+      }
+    }
+  }
+}
