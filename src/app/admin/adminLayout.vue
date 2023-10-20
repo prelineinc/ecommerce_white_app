@@ -85,7 +85,7 @@
         </q-input>
 
         <q-btn flat round icon="person">
-          <q-tooltip>
+          <q-tooltip class="q-pa-lg bg-black text-white">
             Profile
           </q-tooltip>
         </q-btn>

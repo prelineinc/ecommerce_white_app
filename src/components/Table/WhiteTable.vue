@@ -1,14 +1,19 @@
 <template>
-    <div class="q-pa-md">
-      <q-table
-        :rows="rows"
-        :columns="columns"
-        row-key="name"
-      />
-    </div>
-  </template>
+  <div class="q-pa-md">
+    <q-table :rows="rows" :columns="columns" row-key="name">
+      <template v-slot:body-cell-action="{ row }">
+        <q-td :props="row.props" class="text-right">
+          <q-btn flat round icon="edit" size="sm" @click="prompt = true">
+          </q-btn>
+          <q-btn flat round icon="delete" size="sm">
+          </q-btn>
+        </q-td>
+      </template>
+    </q-table>
+  </div>
+</template>
 
-  <script>
+<script>
 const columns = [
   {
     name: 'name',
@@ -25,7 +30,8 @@ const columns = [
   { name: 'protein', label: 'Protein (g)', field: 'protein' },
   { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
   { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-  { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
+  { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
+  { name: 'action', label: 'Action' }
 ]
 
 const rows = [

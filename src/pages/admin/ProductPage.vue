@@ -2,6 +2,10 @@
   <q-layout view="lHh Lpr lFf">
     <q-page>
       <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="300">
+        <div class="q-mx-md row justify-between">
+          <div class="text-subtitle2">Add Product</div>
+          <q-btn icon="close" flat round dense size="sm" @click="handleClick"></q-btn>
+        </div>
         <div class="q-ma-md">
           <q-form @submit.prevent="onSubmit">
             <q-input filled v-model="name" label="Title*" lazy-rules
@@ -22,7 +26,7 @@
           <div class="text-h6 q-mx-md">
             Product List
           </div>
-          <q-btn outline icon="add" style="color: #9e9e9e;" label="Add" @click="handleClick"></q-btn>
+          <q-btn v-if="!leftDrawerOpen" outline icon="add" style="color: #9e9e9e;" label="Add" size="sm" @click="handleClick"></q-btn>
         </div>
         <WhiteTable />
       </q-page-container>

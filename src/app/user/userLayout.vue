@@ -45,13 +45,13 @@
         </q-input>
 
         <q-btn flat round icon="person" @click="profilePage">
-          <q-tooltip>
-            Profile
-          </q-tooltip>
+          <q-tooltip class="q-pa-md text-black shadow-4" :offset="[10, 10]">
+          Profile
+        </q-tooltip>
         </q-btn>
         <q-btn flat round icon="favorite" @click="productPage">
           <q-tooltip>
-            Cart
+            Wishlist
           </q-tooltip>
         </q-btn>
         <q-btn flat round icon="shopping_bag" @click="cartPage">
