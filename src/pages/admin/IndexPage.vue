@@ -1,17 +1,14 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <WhiteBreadCrumb />
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-    <WhiteButton />
-    <WhiteTable />
-    <WhiteCard />
-    <WhiteForm />
-  </q-page>
+  <q-layout view="lHh Lpr lFf">
+    <q-page class="row items-center justify-evenly">
+      <WhiteBreadCrumb />
+      <example-component title="Example component" active :todos="todos" :meta="meta"></example-component>
+      <WhiteButton />
+      <WhiteTable />
+      <WhiteCard />
+      <WhiteForm />
+    </q-page>
+  </q-layout>
 </template>
 
 <script lang="ts">

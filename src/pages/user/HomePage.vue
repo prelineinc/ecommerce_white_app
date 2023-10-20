@@ -1,68 +1,63 @@
 <template>
-    <q-page class="row items-center justify-evenly" >
-      <WhiteBreadCrumb />
-      <example-component
-        title="Example component"
-        active
-        :todos="todos"
-        :meta="meta"
-      ></example-component>
-      <WhiteButton />
-      <div style="color:$error-red">Test</div>
-      <WhiteTable />
-      <WhiteCard />
-      <WhiteForm />
-    </q-page>
-  </template>
-  
-  <script lang="ts">
-  import { Todo, Meta } from 'components/models';
-  import ExampleComponent from 'components/ExampleComponent.vue';
-  import { defineComponent, ref } from 'vue';
-  import WhiteButton from '../../components/Button/WhiteButton.vue';
-  import WhiteCard from '../../components/Card/WhiteCard.vue';
-  import WhiteTable from '../../components/Table/WhiteTable.vue';
-  import WhiteForm from '../../components/Form/WhiteForm.vue';
-  import WhiteBreadCrumb from '../../components/BreadCrumb/WhiteBreadCrumb.vue';
-  export default defineComponent({
-    name: 'IndexPage',
-    components: {
-      ExampleComponent,
-      WhiteButton,
-      WhiteCard,
-      WhiteTable,
-      WhiteForm,
-      WhiteBreadCrumb,
-    },
-    setup(context) {
-      console.log(context, 'user');
-      const todos = ref<Todo[]>([
-        {
-          id: 1,
-          content: 'ct1',
-        },
-        {
-          id: 2,
-          content: 'ct2',
-        },
-        {
-          id: 3,
-          content: 'ct3',
-        },
-        {
-          id: 4,
-          content: 'ct4',
-        },
-        {
-          id: 5,
-          content: 'ct5',
-        },
-      ]);
-      const meta = ref<Meta>({
-        totalCount: 1200,
-      });
-      return { todos, meta };
-    },
-  });
-  </script>
-  
+  <q-page>
+    <div class="q-pa-xl row">
+      <div class=" q-pr-md col-8">
+
+        <div class=" flex items-center justify-evenly" style="border: 5px solid #F2C037;">
+          <h4>Flat 50% OFF</h4>
+          <div class="circle1"></div>
+        </div>
+
+      </div>
+      <div class="col-4">
+        <div class="bg-warning flex items-center justify-evenly" style="border: 5px solid #F2C037;">
+          <h4>Order On our App</h4>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="q-mb-sm flex items-center justify-evenly" style="font-size: xx-large;">Catageray</div>
+      <DashboardCard @click="itemPage" />
+    </div>
+
+
+  </q-page>
+</template>
+
+<script lang="ts">
+import { Todo, Meta } from 'components/models';
+import ExampleComponent from 'components/ExampleComponent.vue';
+import { defineComponent, ref } from 'vue';
+import WhiteCard from '../../components/Card/WhiteCard.vue';
+import DashboardCard from '../../components/Card/DashboardCard.vue';
+import { useRouter } from 'vue-router';
+
+export default defineComponent({
+  name: 'DashBoardPage',
+  components: {
+    //WhiteCard,
+    DashboardCard
+  },
+  setup() {
+    const router = useRouter();
+
+    const itemPage = () => {
+      router.push('item');
+    };
+
+    return { itemPage }
+  },
+
+})
+</script>
+
+<style lang="scss" scoped>
+.circle1 {
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  right: 15px;
+}
+</style>

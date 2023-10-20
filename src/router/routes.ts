@@ -32,7 +32,6 @@ const user = [
       { path: 'trending', component: () => import('../pages/user/TrendingPage.vue') },
       { path: 'wishlist', component: () => import('../pages/user/WishListPage.vue') },
       { path: 'delivery', component: () => import('../pages/user/DeliveryPage.vue') }
-      
     ],
   }
 ];
