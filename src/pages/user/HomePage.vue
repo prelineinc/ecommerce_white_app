@@ -1,5 +1,5 @@
 <template>
-    <q-page class="row items-center justify-evenly">
+    <q-page class="row items-center justify-evenly" >
       <WhiteBreadCrumb />
       <example-component
         title="Example component"
@@ -8,6 +8,7 @@
         :meta="meta"
       ></example-component>
       <WhiteButton />
+      <div style="color:$error-red">Test</div>
       <WhiteTable />
       <WhiteCard />
       <WhiteForm />
