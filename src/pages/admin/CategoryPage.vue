@@ -12,6 +12,22 @@
               :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
             <div class="q-my-md">
               <q-btn class="full-width" label="Submit" type="submit" color="primary"></q-btn>
+
+              <q-dialog v-model="successDialog" persistent transition-show="scale" transition-hide="scale">
+                <q-card class="bg-teal text-white" style="width: 300px">
+                  <q-card-section>
+                    <div class="text-h6">Message</div>
+                  </q-card-section>
+
+                  <q-card-section class="q-pt-none">
+                    Item has been add Successfully
+                  </q-card-section>
+
+                  <q-card-actions align="right" class="bg-white text-teal">
+                    <q-btn flat label="OK" v-close-popup></q-btn>
+                  </q-card-actions>
+                </q-card>
+              </q-dialog>
             </div>
 
           </q-form>
@@ -44,6 +60,7 @@ export default defineComponent({
     const name = ref(null);
     const description = ref(null);
     const amount = ref(null);
+    const successDialog = ref(false)
 
     const handleClick = () => {
       // Your click event logic goes here
@@ -53,8 +70,9 @@ export default defineComponent({
 
     const onSubmit = () => {
       console.log('submit');
+      successDialog.value = true;
     }
-    return { leftDrawerOpen, name, description, amount, handleClick, onSubmit };
+    return { leftDrawerOpen, name, description, amount, successDialog, handleClick, onSubmit };
   },
 });
 </script>
