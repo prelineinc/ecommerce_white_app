@@ -23,6 +23,7 @@ const user = [
     component: () => import('../app/user/userLayout.vue'),
     children: [
       { path: '', component: () => import('../pages/user/HomePage.vue') },
+      { path: 'home', component: () => import('../pages/user/HomePage.vue') },
       { path: 'cart', component: () => import('../pages/user/CartPage.vue') },
       { path: 'item', component: () => import('../pages/user/ItemPage.vue') },
       { path: 'offer', component: () => import('../pages/user/OfferPage.vue') },

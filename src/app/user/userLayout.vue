@@ -82,7 +82,7 @@ const itemPage = () => {
   router.push('item');
 }
 const homePage = () => {
-  router.push('');
+  router.push('home');
 }
 const productPage = () => {
   router.push('wishlist');
