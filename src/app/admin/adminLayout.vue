@@ -2,46 +2,21 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="bg-white text-dark">
-        <!-- <q-btn
+        <q-btn
           flat
           dense
           round
           icon="menu"
           aria-label="Menu"
           @click="toggleLeftDrawer"
-        /> -->
+        />
 
         <q-toolbar-title class="text-primary">
           Ecommerce App
 
         </q-toolbar-title>
-        <!-- <q-tabs indicator-color="transparent" inline-label class="bg-white text-dark">
-          <q-btn-dropdown auto-close stretch flat label="Women">
-            <q-list>
-              <q-item clickable>
-                <q-item-section>chudi</q-item-section>
-              </q-item>
 
-              <q-item clickable>
-                <q-item-section>Jeans</q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-
-          <q-btn-dropdown auto-close stretch flat label="Kids">
-            <q-list>
-              <q-item clickable>
-                <q-item-section>Shirt</q-item-section>
-              </q-item>
-
-              <q-item clickable>
-                <q-item-section>Pants</q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-        </q-tabs> -->
-
-        <q-btn color="primary" flat @mouseover="pages = true" label="Pages" no-caps>
+        <!-- <q-btn color="primary" flat @mouseover="pages = true" label="Pages" no-caps>
           <q-menu v-model="pages" @mouseleave="pages = false" fit>
             <q-list style="min-width: 100px">
               <q-item clickable @click="productPage('item')">
@@ -61,20 +36,7 @@
               </q-item>
             </q-list>
           </q-menu>
-        </q-btn>
-
-        <!-- <q-btn color="primary" flat @mouseleave="woman = false" @mouseover="kids = true" label="Kids" no-caps>
-      <q-menu v-model="kids" @mouseleave="kids = false"  fit>
-          <q-list style="min-width: 100px">
-            <q-item clickable>
-              <q-item-section>Shirts</q-item-section>
-            </q-item>
-            <q-item clickable>
-              <q-item-section>Pants</q-item-section>
-            </q-item>
-          </q-list>
-        </q-menu>
-       </q-btn> -->
+        </q-btn> -->
 
         <q-input dense borderless v-model="text" input-class="text-left" class="q-mx-lg q-px-md search-bar"
           placeholder="Search Products" style="width: 35%;">
@@ -102,7 +64,7 @@
       </q-toolbar>
     </q-header>
 
-    <!-- <q-drawer
+    <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
       bordered
@@ -111,16 +73,17 @@
         <q-item-label
           header
         >
-          Essential Links
+          Ecommerce Links
         </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
+          @click="productPage(link.label)"
         />
       </q-list>
-    </q-drawer> -->
+    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -135,47 +98,48 @@ import { useRouter } from 'vue-router';
 
 const essentialLinks: any[] = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Items',
+    label: 'item',
+    // caption: 'quasar.dev',
+    icon: 'view_list',
+    link: 'http://localhost:9000/#/item'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'Category',
+    // caption: 'github.com/quasarframework',
+     icon: 'category',
+   link: 'http://localhost:9000/#/category'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'Product',
+    // caption: 'chat.quasar.dev',
+     icon: 'inventory',
+     link: 'http://localhost:9000/#/product'
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: 'Coupon',
+    // caption: 'forum.quasar.dev',
+     icon: 'percent',
+     link: 'http://localhost:9000/#/coupon'
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    title: 'Offers',
+    // caption: '@quasarframework',
+      icon: 'local_offer',
+     link: 'http://localhost:9000/#/offer'
   },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
+  // {
+  //   title: 'Facebook',
+  //   caption: '@QuasarFramework',
+  //   icon: 'public',
+  //   link: 'https://facebook.quasar.dev'
+  // },
+  // {
+  //   title: 'Quasar Awesome',
+  //   caption: 'Community Quasar projects',
+  //   icon: 'favorite',
+  //   link: 'https://awesome.quasar.dev'
+  // }
 ];
 
 const text = ref('')
@@ -183,11 +147,11 @@ const pages = ref(false)
 const kids = ref(false);
 const router = useRouter();
 
-// const leftDrawerOpen = ref(false)
+const leftDrawerOpen = ref(false)
 
-// function toggleLeftDrawer() {
-//   leftDrawerOpen.value = !leftDrawerOpen.value
-// }
+function toggleLeftDrawer() {
+  leftDrawerOpen.value = !leftDrawerOpen.value
+}
 function productPage(message: string) {
   // Access the event target value
   router.push(message);

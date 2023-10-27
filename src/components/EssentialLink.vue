@@ -1,9 +1,8 @@
 <template>
   <q-item
     clickable
-    tag="a"
-    target="_blank"
     :href="link"
+    v-ripple
   >
     <q-item-section
       v-if="icon"
@@ -23,7 +22,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'EssentialLink',
+  name: 'EcommerceLink',
   props: {
     title: {
       type: String,

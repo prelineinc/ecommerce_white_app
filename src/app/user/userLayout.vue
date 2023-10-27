@@ -5,15 +5,150 @@
 
         <q-toolbar-title class="text-primary" @click="homePage">
           Ecommerce App
-
-        </q-toolbar-title>
-
-        <q-btn color="primary" flat @mouseleave="kids = false" @mouseover="woman = true" label="Woman" @click="itemPage"
+          <q-btn class="q-ml-md" color="primary" flat @mouseleave="kids = false" @mouseover="woman = true" label="Woman" @click="itemPage"
           no-caps>
           <q-menu v-model="woman" @mouseleave="woman = false" fit>
+            <div class="row q-ma-md">
+              <div class="column q-ml-md">
+                <div class="text-caption item-title cursor-pointer">
+                  Indian Wear
+                </div>
+                <div class="column">
+                  <div class="text-body cursor-pointer text">
+                    Kurtas
+                  </div>
+                  <div class="text-body cursor-pointer text">
+                    Saree
+                  </div>
+                </div>
+              </div>
+              <div class="column q-ml-md">
+                <div class="text-subtitle item-title cursor-pointer">
+                  Weatern Wear
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Tops
+                </div>
+                <div class="text-body cursor-pointer text">
+                  T-Shirts
+                </div>
+              </div>
+              <div class="column q-ml-md">
+                <div class="text-subtitle item-title">
+                  FootWear
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Casual Shoes
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Heels
+                </div>
+              </div>
+            </div>
+          </q-menu>
+        </q-btn>
+
+        <q-btn color="primary" flat @mouseleave="woman = false" @mouseover="kids = true" label="Kids" @click="itemPage"
+          no-caps>
+          <q-menu v-model="kids" @mouseleave="kids = false" fit>
+            <div class="row q-ma-md">
+              <div class="column q-ml-md">
+                <div class="text-caption item-title cursor-pointer">
+                  Boys Clothing
+                </div>
+                <div class="column">
+                  <div class="text-body cursor-pointer text">
+                    T-Shirts
+                  </div>
+                  <div class="text-body cursor-pointer text">
+                    Shirts
+                  </div>
+                  <div class="text-body cursor-pointer text">
+                    Jeans
+                  </div>
+                </div>
+              </div>
+              <div class="column q-ml-md">
+                <div class="text-subtitle item-title cursor-pointer">
+                  Girls Clothing
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Tops
+                </div>
+                <div class="text-body cursor-pointer text">
+                  T-Shirts
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Kurta sets
+                </div>
+              </div>
+              <div class="column q-ml-md">
+                <div class="text-subtitle item-title">
+                  FootWear
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Casual Shoes
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Heels
+                </div>
+              </div>
+            </div>
+          </q-menu>
+        </q-btn>
+        </q-toolbar-title>
+
+        <!-- <q-btn color="primary" flat @mouseleave="kids = false" @mouseover="woman = true" label="Woman" @click="itemPage"
+          no-caps>
+          <q-menu v-model="woman" @mouseleave="woman = false" fit>
+            <div class="row q-ma-md">
+              <div class="column q-ml-md">
+                <div class="text-caption item-title">
+                  Indian Wear
+                </div>
+                <div class="column">
+                  <div class="text-body cursor-pointer text">
+                    Kurtas
+                  </div>
+                  <div class="text-body cursor-pointer text">
+                    Saree
+                  </div>
+                </div>
+              </div>
+              <div class="column q-ml-md">
+                <div class="text-subtitle item-title">
+                  Weatern Wear
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Tops
+                </div>
+                <div class="text-body cursor-pointer text">
+                  T-Shirts
+                </div>
+              </div>
+              <div class="column q-ml-md">
+                <div class="text-subtitle item-title">
+                  Weatern Wear
+                </div>
+                <div class="text-body cursor-pointer text">
+                  Tops
+                </div>
+                <div class="text-body cursor-pointer text">
+                  T-Shirts
+                </div>
+              </div>
+            </div>
             <q-list style="min-width: 100px">
+              <div class="text-subtitle2">
+                    Indian Wear
+                  </div>
+                  <div class="text-body cursor-pointer text">
+                    Kurtas
+                  </div>
               <q-item clickable>
-                <q-item-section>Sarees</q-item-section>
+                <div class="text-body">
+                    Kurtas
+                  </div>
               </q-item>
               <q-item clickable>
                 <q-item-section>Kurtas</q-item-section>
@@ -34,7 +169,7 @@
               </q-item>
             </q-list>
           </q-menu>
-        </q-btn>
+        </q-btn> -->
 
         <q-input dense borderless v-model="text" input-class="text-left" class="q-mx-lg q-px-md search-bar"
           placeholder="Search Products" style="width: 35%;">
@@ -46,8 +181,8 @@
 
         <q-btn flat round icon="person" @click="profilePage">
           <q-tooltip class="q-pa-md text-black shadow-4" :offset="[10, 10]">
-          Profile
-        </q-tooltip>
+            Profile
+          </q-tooltip>
         </q-btn>
         <q-btn flat round icon="favorite" @click="productPage">
           <q-tooltip>
@@ -101,5 +236,13 @@ const profilePage = () => {
   background: #e0e0e078;
   border-radius: 50px;
   border: 1px solid #e0e0e075;
+}
+
+.text:hover {
+  font-weight: 600;
+}
+
+.item-title {
+  color: orange;
 }
 </style>
