@@ -8,13 +8,15 @@
         </div>
 
         <div class="q-ma-md">
-          <q-form @submit.prevent="onSubmit">
-            <q-input filled v-model="name" label="Title*" lazy-rules
+          <q-form @submit.prevent="onSubmit" class="q-gutter-md">
+            <q-input filled v-model="name" label="Name *" lazy-rules
               :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
             <q-input filled v-model="description" label="Description*" lazy-rules
               :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
-            <q-input filled v-model="amount" label="Amount*" lazy-rules
-              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+              <div>
+              <q-item-label class="q-my-sm">Upload Img</q-item-label>
+              <q-uploader url="http://localhost:4444/upload" style="max-width: 250px"></q-uploader>
+            </div>
             <div class="q-my-md">
               <q-btn class="full-width" label="Submit" type="submit" color="primary"></q-btn>
 

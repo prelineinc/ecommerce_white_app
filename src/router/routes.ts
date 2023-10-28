@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 
-const isActive=false;
+const isActive=true;
 const admin = [
   {
     path: '/',
