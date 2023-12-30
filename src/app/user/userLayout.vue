@@ -185,12 +185,12 @@
           </q-tooltip>
         </q-btn>
         <q-btn flat round icon="favorite" @click="productPage">
-          <q-tooltip>
+          <q-tooltip class="q-pa-md text-black shadow-4" :offset="[10, 10]">
             Wishlist
           </q-tooltip>
         </q-btn>
         <q-btn flat round icon="shopping_bag" @click="cartPage">
-          <q-tooltip>
+          <q-tooltip class="q-pa-md text-black shadow-4" :offset="[10, 10]">
             Bag
           </q-tooltip>
         </q-btn>
