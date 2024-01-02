@@ -5,7 +5,7 @@
 
         <q-toolbar-title class="text-primary" @click="homePage">
           Ecommerce App
-          <q-btn class="q-ml-md" color="primary" flat @mouseleave="kids = false" @mouseover="woman = true" label="Woman" @click="itemPage"
+          <q-btn class="q-ml-md" color="dark" flat @mouseleave="kids = false" @mouseover="woman = true" label="Woman" @click="itemPage"
           no-caps>
           <q-menu v-model="woman" @mouseleave="woman = false" fit>
             <div class="row q-ma-md">
@@ -48,7 +48,7 @@
           </q-menu>
         </q-btn>
 
-        <q-btn color="primary" flat @mouseleave="woman = false" @mouseover="kids = true" label="Kids" @click="itemPage"
+        <q-btn color="dark" flat @mouseleave="woman = false" @mouseover="kids = true" label="Kids" @click="itemPage"
           no-caps>
           <q-menu v-model="kids" @mouseleave="kids = false" fit>
             <div class="row q-ma-md">
@@ -189,11 +189,24 @@
             Wishlist
           </q-tooltip>
         </q-btn>
-        <q-btn flat round icon="shopping_bag" @click="cartPage">
+        <q-btn flat round  icon="shopping_bag" @click="cartPage">
           <q-tooltip class="q-pa-md text-black shadow-4" :offset="[10, 10]">
             Bag
           </q-tooltip>
         </q-btn>
+        <!-- <div class="q-mx-sm text-center" @click="profilePage">
+          <q-icon name="person_outline" size="sm"></q-icon>
+        <div class="text-caption text-weight-medium text-center">Profile</div>
+        </div>
+        <div class="q-mx-sm text-center" @click="productPage">
+          <q-icon name="favorite_outline" size="sm"></q-icon>
+        <div class="text-caption text-weight-medium text-center">Wishlist</div>
+        </div>
+
+        <div class="q-mx-sm text-center" @click="cartPage">
+          <q-icon name="shopping_bag" size="sm" ></q-icon>
+        <div class="text-caption text-weight-medium text-center">Bag</div>
+        </div> -->
       </q-toolbar>
     </q-header>
 

@@ -53,6 +53,7 @@
           <q-img class="rounded-borders col-3 full-height" src="https://cdn.quasar.dev/img/parallax2.jpg" />
           <q-img class="rounded-borders col-3 full-height" src="https://cdn.quasar.dev/img/quasar.jpg" /> -->
         </div>
+      </q-carousel-slide>
       <q-carousel-slide :name="3" class="column no-wrap">
         <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
           <q-img class="rounded-borders col-3 full-height" src="https://cdn.quasar.dev/img/cat.jpg" />

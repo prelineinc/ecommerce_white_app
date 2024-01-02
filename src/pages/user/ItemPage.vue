@@ -2,6 +2,10 @@
   <div>
     <div class="row">
       <div class="col-12 col-md-2 q-pa-md">
+        <div style="display: flex; justify-content: space-between;">
+          <div class="text-subtitle text-weight-medium">Filter</div>
+          <div class="text-subtittle text-red">Clear All</div>
+        </div>
         <div>
           <div class="q-my-md text-subtitle text-weight-medium">Category</div>
           <q-list bordered padding>

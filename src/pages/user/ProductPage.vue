@@ -34,13 +34,16 @@
             <div class="text-subtitle1 q-ma-xs" style="text-decoration: line-through;">
               $ 2000
             </div>
+            <div class="text-subtitle1 q-ma-xs" style="color: red;">
+              (20% OFF)
+            </div>
           </div>
           <div class="text-subtitle2 text-positive">
             inclusive of all taxes
           </div>
           <div class="q-mt-sm">
             <div class="text-h6">Select Size</div>
-            <div class="q-gutter-xs">
+            <!-- <div class="q-gutter-xs">
               <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="extra-small"
                 label="XS"></q-radio>
               <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="small"
@@ -51,13 +54,20 @@
                 label="L"></q-radio>
               <q-radio v-model="shape" checked-icon="task_alt" unchecked-icon="panorama_fish_eye" val="extra-large"
                 label="XL"></q-radio>
+            </div> -->
+            <div class="q-gutter-xs">
+              <q-btn outline rounded color="bb-grey-150">XS</q-btn>
+              <q-btn outline rounded color="bb-grey-150">S</q-btn>
+              <q-btn outline rounded color="bb-grey-150">M</q-btn>
+              <q-btn outline rounded color="bb-grey-150">L</q-btn>
+              <q-btn outline rounded color="bb-grey-150">XL</q-btn>
             </div>
           </div>
           <div class="row q-ma-sm q-gutter-md">
-            <q-btn color="primary" icon="shopping_bag" label="Add to Bag"></q-btn>
+            <q-btn color="red" icon="shopping_bag" label="Add to Bag"></q-btn>
             <q-btn outline icon="favorite_border" style="color: #9e9e9e;" label="Wishkist"></q-btn>
           </div>
-          <q-separator></q-separator>
+          <q-separator class="q-mt-md" />
           <div class="text-h6 q-my-sm">PRODUCT DETAILS</div>
           <div class="text-body2" style="color: #9e9e9e;">
             Purple yoke design Kurta with Palazzos with dupatta
@@ -102,6 +112,66 @@
             </div>
           </div>
 
+          <q-separator class="q-mt-md" />
+
+          <div>
+            <div class="text-h6 q-my-md">
+              RATINGS
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4 q-pr-xl">
+                <div class="text-h3">
+                  4.5
+                  <q-icon name="star" color="positive" style="font-size:x-large;" />
+                </div>
+                <div class="text-caption">
+                  7.1K Verified Buyer
+                </div>
+
+              </div>
+              <q-separator  vertical />
+              <div class="col-12 col-md-6 q-px-sm q-ml-md">
+                <div class="q-gutter-xs" style="display: flex; align-items: center">
+                  <div class="text-subtittle-2">5</div>
+                  <q-icon name="star" color="positive" style="font-size:x-small;" />
+                  <q-linear-progress :value="0.4" color="green-6" />
+                </div>
+                <div class="q-gutter-xs" style="display: flex; align-items: center">
+                  <div class="text-subtittle-2">4</div>
+                  <q-icon name="star" color="positive" style="font-size:x-small;" />
+                  <q-linear-progress :value="0.2" color="green-6" />
+                </div>
+                <div class="q-gutter-xs" style="display: flex; align-items: center">
+                  <div class="text-subtittle-2">3</div>
+                  <q-icon name="star" color="positive" style="font-size:x-small;" />
+                  <q-linear-progress :value="0.05" color="green-3" />
+                </div>
+                <div class="q-gutter-xs" style="display: flex; align-items: center">
+                  <div class="text-subtittle-2">2</div>
+                  <q-icon name="star" color="positive" style="font-size:x-small;" />
+                  <q-linear-progress :value="0.4" color="orange-5" />
+                </div>
+                <div class="q-gutter-xs" style="display: flex; align-items: center">
+                  <div class="text-subtittle-2">1</div>
+                  <q-icon name="star" color="positive" style="font-size:x-small;" />
+                  <q-linear-progress :value="0.05" color="red" />
+                </div>
+              </div>
+            </div>
+
+            <q-separator class="q-mt-md" />
+
+            <div class="q-my-md">
+              <div class="text-body1">
+                Code : <b>123456</b>
+              </div>
+            </div>
+            <div class="q-my-md">
+              <div class="text-body1">
+                Seller : <text-body1 style="color: red; font-weight:bold">Fasion</text-body1>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

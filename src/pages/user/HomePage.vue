@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <!-- <div class="q-pa-xl row">
+    <div class="q-pa-xl row">
       <div class=" q-pr-md col-8">
 
         <div class=" flex items-center justify-evenly" style="border: 5px solid #F2C037;">
@@ -14,7 +14,7 @@
           <h4>Order On our App</h4>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="q-pa-md">
     <q-carousel
       animated
