@@ -1,5 +1,5 @@
 <template>
-    <div class="q-pa-xl row">
+    <div class="q-pa-xl row" style="padding-top: 0%;">
       <!-- <q-card class="my-card" flat bordered>
         <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg" /> -->
 
@@ -48,7 +48,7 @@
         </q-card-actions> -->
       <!-- </q-card> -->
       <div class="col-3 q-pa-xs" v-for="(card, index) in items" :key="index">
-          <q-card class="my-card" flat bordered>
+          <q-card class="my-card" flat bordered @click="productPage">
           <q-img src="https://cdn.quasar.dev/img/chicken-salad.jpg">
             <div class="rating absolute-bottom-left text-subtitle2" >
               {{ card.rate }}
@@ -80,10 +80,18 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'WhiteCard',
   setup() {
+    const router = useRouter();
+
+    const productPage = () => {
+      router.push('product');
+    };
+
+
     const items = [
       {
         title: 'Fashion',
@@ -134,7 +142,7 @@ export default defineComponent({
       }
     ];
 
-    return { items };
+    return { items, productPage };
   }
 });
 </script>

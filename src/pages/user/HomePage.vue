@@ -55,6 +55,8 @@ import WhiteCard from '../../components/Card/WhiteCard.vue';
 import DashboardCard from '../../components/Card/DashboardCard.vue';
 import WhiteCarousel from '../../components/Carousel/WhiteCarousel.vue'
 import { useRouter } from 'vue-router';
+import { GetBrand } from 'src/service/admin';
+import { useQuery } from '@vue/apollo-composable';
 
 export default defineComponent({
   name: 'DashBoardPage',
@@ -70,10 +72,35 @@ export default defineComponent({
       router.push('item');
     };
 
+    // const { result } = useQuery(GetBrand);
+    // console.log(result);
+
     return { itemPage,
       slide: ref(1),
-      autoplay: ref(true) }
+      autoplay: ref(true),
+      //list: result.value ? result.value.data.list : [],
+    }
   },
+
+  // data: function(){
+  //   return {
+  //     list: [],
+  //   }
+  // },
+
+  // methods: {
+  //   addPost() {
+  //     this.posts.push({ content: this.newPostContent })
+  //     this.newPostContent = '';
+  //   }
+  // },
+
+  // NEW
+  // apollo: {
+  //   list: {
+  //     query: GetBrand
+  //   }
+  // }
 
 })
 </script>
