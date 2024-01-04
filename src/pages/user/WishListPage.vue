@@ -4,7 +4,7 @@
       My Whichlist
     </div>
     <div>
-      <WhiteCard @click="productPage" />
+      <WishListCard @click="productPage" />
     </div>
   </q-page>
 </template>
@@ -12,12 +12,14 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import WhiteCard from '../../components/Card/WhiteCard.vue';
+import WishListCard from '../../components/Card/WishListCard.vue'
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'CategoryPage',
   components: {
-    WhiteCard,
+    //WhiteCard,
+    WishListCard
   },
   setup() {
     const router = useRouter();
