@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="row">
-      <div class="col-md-5 offset-md-3 q-ma-md">
+      <div class="col-5 q-mt-md">
         <q-tabs v-model="tab" dense class="text-black" active-color="primary" indicator-color="primary" align="justify"
           narrow-indicator no-caps>
           <q-tab name="delivery" label="Delivered"></q-tab>

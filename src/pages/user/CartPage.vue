@@ -1,6 +1,23 @@
 <template>
   <q-page>
-    <div class="row justify-center q-ma-lg">
+    <div class="row justify-around items-center q-pa-md">
+      <div>
+        <q-icon name="android" size="2rem" color="pink"></q-icon>
+      </div>
+      <div class="q-pa-md q-gutter-sm">
+        <q-breadcrumbs separator="-----------" class="text-grey">
+          <q-breadcrumbs-el label="BAG" class="text-overline text-green" />
+          <q-breadcrumbs-el label="Address" class="text-grey" />
+          <q-breadcrumbs-el label="Payment" />
+        </q-breadcrumbs>
+      </div>
+      <div class="row items-center">
+        <q-icon name="verified_user" size="2rem" color="green-6"></q-icon>
+        <div class="text-caption">100% Secure</div>
+      </div>
+    </div>
+    <q-separator></q-separator>
+    <div class="row justify-center ">
       <div class="col-4 q-pa-xs">
         <div class="address-div">
           <div>
@@ -18,11 +35,11 @@
           </div>
         </div>
 
-        <q-card class="my-card" flat bordered >
+        <q-card class="my-card" flat bordered>
           <q-card-section horizontal>
             <q-btn outline class="absolute-top-right q-ma-sm " flat color="black" round icon="close" size="sm"></q-btn>
             <q-img class="col-5 q-ma-md" src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
-            <q-card-section >
+            <q-card-section>
               <div class="row justify-between">
                 <div class="text-subtitle1 text-weight-bold">Fashion</div>
               </div>
@@ -45,78 +62,90 @@
         </q-card>
       </div>
       <q-separator vertical></q-separator>
-      <div class="col-4 " >
-          <q-card class="my-card" flat no-bordered style="width: 350px;">
-            <q-card-section>
-              <div class="text-subtitle2">COUPON</div>
-              <div class="q-mb-sm price-detail-div" >
-                <div style="display: flex; align-items: center">
-                  <q-icon name="style" size="1rem"/>
+      <div class="col-4 ">
+        <q-card class="my-card" flat no-bordered style="width: 350px;">
+          <q-card-section>
+            <div class="text-subtitle2">COUPON</div>
+            <div class="q-mb-sm price-detail-div">
+              <div style="display: flex; align-items: center">
+                <q-icon name="style" size="1rem" />
                 <div class="text-subtitle2">Apply Coupons</div>
-                </div>
-                <div>
-                  <q-btn outline style="color: #FF0080" label="Apply" size="sm"></q-btn>
-                </div>
               </div>
-              <q-separator></q-separator>
-              <div class="q-mt-md text-weight-medium">
-                Price Details:
+              <div>
+                <q-btn outline style="color: #FF0080" label="Apply" size="sm"></q-btn>
               </div>
-              <div class="price-detail-div" >
-                <div >
-                  Total MRP
-                </div>
-                <div>
-                  $ 4,500
-                </div>
+            </div>
+            <q-separator></q-separator>
+            <div class="q-mt-md text-weight-medium">
+              Price Details:
+            </div>
+            <div class="price-detail-div">
+              <div>
+                Total MRP
               </div>
-              <div class="price-detail-div">
-                <div>
-                  Dicount on MRP
-                </div>
-                <div color="success">
-                  -$ 3,500
-                </div>
+              <div>
+                $ 4,500
               </div>
-              <div class="q-mb-sm price-detail-div">
-                <div>
-                  Convenience Fee
-                </div>
-                <div color="success">
-                  $ 20
-                </div>
+            </div>
+            <div class="price-detail-div">
+              <div>
+                Dicount on MRP
               </div>
-              <q-separator></q-separator>
-              <div class="price-detail-div">
-                <div >
-                  Total
-                </div>
-                <div  color="success">
-                  $ 1,500
-                </div>
+              <div color="success">
+                -$ 3,500
               </div>
-              <q-btn class="full-width q-my-md" style="background: #FF0080; color: white" label="Place Order"></q-btn>
-            </q-card-section>
-          </q-card>
-        </div>
+            </div>
+            <div class="q-mb-sm price-detail-div">
+              <div>
+                Convenience Fee
+              </div>
+              <div color="success">
+                $ 20
+              </div>
+            </div>
+            <q-separator></q-separator>
+            <div class="price-detail-div">
+              <div>
+                Total
+              </div>
+              <div color="success">
+                $ 1,500
+              </div>
+            </div>
+            <q-btn class="full-width q-my-md" style="background: #FF0080; color: white" label="Place Order"></q-btn>
+          </q-card-section>
+        </q-card>
+      </div>
     </div>
   </q-page>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  name: 'CartPage',
+  setup() {
+    const click = ref('profile');
 
-}
+    const selectChange = (name: any) => {
+      click.value = name
+      console.log(click.value)
+    }
+
+    return {click, selectChange}
+  },
+
+})
 </script>
 
 <style lang="scss" scoped>
 .address-div {
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid lightgrey;
-    margin: 10px 0px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  margin: 10px 0px;
 }
 
 .price-detail-div {

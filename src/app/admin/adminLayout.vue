@@ -128,18 +128,30 @@ const essentialLinks: any[] = [
       icon: 'local_offer',
      link: 'http://localhost:9000/#/offer'
   },
-  // {
-  //   title: 'Facebook',
-  //   caption: '@QuasarFramework',
-  //   icon: 'public',
-  //   link: 'https://facebook.quasar.dev'
-  // },
-  // {
-  //   title: 'Quasar Awesome',
-  //   caption: 'Community Quasar projects',
-  //   icon: 'favorite',
-  //   link: 'https://awesome.quasar.dev'
-  // }
+  {
+    title: 'Banner',
+    //caption: '@QuasarFramework',
+    icon: 'image',
+    link: 'http://localhost:9000/#/banner'
+  },
+  {
+    title: 'Payment',
+    //caption: 'Community Quasar projects',
+    icon: 'payments',
+    link: 'http://localhost:9000/#/payment'
+  },
+  {
+    title: 'Order',
+    //caption: '@QuasarFramework',
+    icon: 'inventory',
+    //link: 'http://localhost:9000/#/banner'
+  },
+  {
+    title: 'User',
+    //caption: 'Community Quasar projects',
+    icon: 'person',
+    //link: 'http://localhost:9000/#/payment'
+  }
 ];
 
 const text = ref('')
