@@ -3,17 +3,16 @@
     <q-page>
       <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="300">
         <div class="q-mx-md row justify-between">
-          <div class="text-subtitle2">Add Offer</div>
+          <div class="text-subtitle2">Add Payment</div>
           <q-btn icon="close" flat round dense size="sm" @click="handleClick"></q-btn>
         </div>
         <div class="q-ma-md">
           <q-form @submit.prevent="onSubmit">
-            <q-input filled v-model="name" label="Title*" lazy-rules
-              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
-            <q-input filled v-model="description" label="Description*" lazy-rules
-              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
-            <q-input filled v-model="amount" label="Amount*" lazy-rules
-              :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
+            <q-input filled v-model="name" label="Title*"
+            :rules="[ val => val && val.length > 0 || 'Please Enter Title']"></q-input>
+            <!-- <q-input filled v-model="description" label="Description*" ></q-input> -->
+            <q-input filled v-model="amount" label="Amount*"
+            :rules="[ val => val && val.length > 0 || 'Please Enter amount']"></q-input>
             <div class="q-my-md">
               <q-btn class="full-width" label="Submit" type="submit" color="primary"></q-btn>
             </div>
@@ -24,7 +23,7 @@
       <q-page-container class="q-my-md">
         <div class="q-mr-md row" style="display: flex; justify-content: space-between;">
           <div class="text-h6 q-mx-md">
-            Offer List
+            Payment List
           </div>
 
           <q-btn v-if="!leftDrawerOpen" outline icon="add" style="color: #9e9e9e;" label="Add" size="sm" @click="handleClick"></q-btn>
@@ -40,7 +39,7 @@ import { defineComponent, ref } from 'vue';
 import WhiteTable from '../../components/Table/WhiteTable.vue';
 
 export default defineComponent({
-  name: 'OfferPage',
+  name: 'PaymentPage',
   components: {
     WhiteTable,
   },

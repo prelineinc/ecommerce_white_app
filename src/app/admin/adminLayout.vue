@@ -98,6 +98,12 @@ import { useRouter } from 'vue-router';
 
 const essentialLinks: any[] = [
   {
+    title: 'User',
+    //caption: 'Community Quasar projects',
+    icon: 'person',
+    link: 'http://localhost:9000/#/user'
+  },
+  {
     title: 'Items',
     label: 'item',
     // caption: 'quasar.dev',
@@ -144,14 +150,8 @@ const essentialLinks: any[] = [
     title: 'Order',
     //caption: '@QuasarFramework',
     icon: 'inventory',
-    //link: 'http://localhost:9000/#/banner'
+    link: 'http://localhost:9000/#/delivery'
   },
-  {
-    title: 'User',
-    //caption: 'Community Quasar projects',
-    icon: 'person',
-    //link: 'http://localhost:9000/#/payment'
-  }
 ];
 
 const text = ref('')

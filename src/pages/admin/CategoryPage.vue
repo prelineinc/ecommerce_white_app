@@ -47,7 +47,7 @@
           </div>
           <q-btn v-if="!leftDrawerOpen" outline icon="add" style="color: #9e9e9e;" label="Add" size="sm" @click="handleClick"></q-btn>
         </div>
-        <WhiteTable />
+        <WhiteTable :title="pageTitle"/>
       </q-page-container>
     </q-page>
   </q-layout>
@@ -79,7 +79,7 @@ export default defineComponent({
       console.log('submit');
       successDialog.value = true;
     }
-    return { leftDrawerOpen, name, description, amount, successDialog, handleClick, onSubmit };
+    return { leftDrawerOpen, name, description, amount, successDialog, handleClick, onSubmit, pageTitle: 'category' };
   },
 });
 </script>

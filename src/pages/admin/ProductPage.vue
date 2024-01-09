@@ -39,7 +39,7 @@ import { defineComponent, ref } from 'vue';
 import WhiteTable from '../../components/Table/WhiteTable.vue';
 
 export default defineComponent({
-  name: 'IndexPage',
+  name: 'ProductPage',
   components: {
     WhiteTable,
   },

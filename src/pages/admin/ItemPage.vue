@@ -54,7 +54,7 @@
           <q-btn v-if="!leftDrawerOpen" outline icon="add" style="color: #9e9e9e;" label="Add" size="sm"
             @click="handleClick"></q-btn>
         </div>
-        <WhiteTable />
+        <WhiteTable :title="pageTitle"/>
       </q-page-container>
     </q-page>
   </q-layout>
@@ -99,7 +99,8 @@ export default defineComponent({
       qualitycheck,
       isExchange,
       handleClick,
-      onSubmit
+      onSubmit,
+      pageTitle: 'item'
     };
   },
 });
