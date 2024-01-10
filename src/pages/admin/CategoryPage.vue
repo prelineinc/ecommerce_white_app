@@ -1,14 +1,15 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page>
-      <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="300">
+      <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="350">
         <div class="q-mx-md row justify-between">
-          <div class="text-subtitle2">Add Category</div>
+          <div v-if="isEdit == false" class="text-subtitle2">Add Category</div>
+          <div v-if="isEdit == true" class="text-subtitle2">Edit Category</div>
           <q-btn icon="close" flat round dense size="sm" @click="handleClick"></q-btn>
         </div>
 
         <div class="q-ma-md">
-          <q-form @submit.prevent="onSubmit" class="q-gutter-md">
+          <q-form @submit.prevent="onSubmit">
             <q-input filled v-model="name" label="Name *" lazy-rules
               :rules="[val => val && val.length > 0 || 'Please type something']"></q-input>
             <q-input filled v-model="description" label="Description*" lazy-rules
@@ -47,7 +48,7 @@
           </div>
           <q-btn v-if="!leftDrawerOpen" outline icon="add" style="color: #9e9e9e;" label="Add" size="sm" @click="handleClick"></q-btn>
         </div>
-        <WhiteTable :title="pageTitle"/>
+        <WhiteTable :title="pageTitle" @editData="handleEditData"/>
       </q-page-container>
     </q-page>
   </q-layout>
@@ -57,13 +58,22 @@
 import { defineComponent, ref } from 'vue';
 import WhiteTable from '../../components/Table/WhiteTable.vue';
 
+const leftDrawerOpen = ref(false);
+const isEdit = ref(false);
+
 export default defineComponent({
   name: 'IndexPage',
   components: {
     WhiteTable,
   },
+  methods: {
+    handleEditData(data: any) {
+      isEdit.value = data;
+      leftDrawerOpen.value = data;
+      console.log(data);
+    }
+  },
   setup() {
-    const leftDrawerOpen = ref(false);
     const name = ref(null);
     const description = ref(null);
     const amount = ref(null);
@@ -72,6 +82,7 @@ export default defineComponent({
     const handleClick = () => {
       // Your click event logic goes here
       console.log('Button clicked!');
+      isEdit.value = false;
       leftDrawerOpen.value = !leftDrawerOpen.value
     };
 
@@ -79,7 +90,7 @@ export default defineComponent({
       console.log('submit');
       successDialog.value = true;
     }
-    return { leftDrawerOpen, name, description, amount, successDialog, handleClick, onSubmit, pageTitle: 'category' };
+    return { leftDrawerOpen, name, description, amount, successDialog, handleClick, onSubmit, pageTitle: 'category', isEdit };
   },
 });
 </script>

@@ -15,7 +15,9 @@ const admin = [
       { path: 'banner', component: () => import('../pages/admin/BannerPage.vue') },
       { path: 'delivery', component: () => import('../pages/admin/DeliveryPage.vue') },
       { path: 'user', component: () => import('../pages/admin/UserPage.vue')},
-      { path: 'payment', component: () => import('../pages/admin/PaymentPage.vue')}
+      { path: 'payment', component: () => import('../pages/admin/PaymentPage.vue')},
+      { path: 'order', component: () => import('../pages/admin/OrderPage.vue')},
+      { path: 'profile', component: () => import('../pages/user/ProfilePage.vue') },
     ],
   }
 ];

@@ -46,7 +46,7 @@
           </template>
         </q-input>
 
-        <q-btn flat round icon="person">
+        <q-btn flat round icon="person" @click="profilePage">
           <q-tooltip class="q-pa-lg bg-black text-white">
             Profile
           </q-tooltip>
@@ -96,6 +96,10 @@ import { ref } from 'vue';
 import EssentialLink from '../../components/EssentialLink.vue';
 import { useRouter } from 'vue-router';
 
+const profilePage = () => {
+  router.push('profile');
+}
+
 const essentialLinks: any[] = [
   {
     title: 'User',
@@ -123,6 +127,18 @@ const essentialLinks: any[] = [
      link: 'http://localhost:9000/#/product'
   },
   {
+    title: 'Payment',
+    //caption: 'Community Quasar projects',
+    icon: 'payments',
+    link: 'http://localhost:9000/#/payment'
+  },
+  {
+    title: 'Order',
+    //caption: '@QuasarFramework',
+    icon: 'inventory',
+    link: 'http://localhost:9000/#/order'
+  },
+  {
     title: 'Coupon',
     // caption: 'forum.quasar.dev',
      icon: 'percent',
@@ -139,18 +155,6 @@ const essentialLinks: any[] = [
     //caption: '@QuasarFramework',
     icon: 'image',
     link: 'http://localhost:9000/#/banner'
-  },
-  {
-    title: 'Payment',
-    //caption: 'Community Quasar projects',
-    icon: 'payments',
-    link: 'http://localhost:9000/#/payment'
-  },
-  {
-    title: 'Order',
-    //caption: '@QuasarFramework',
-    icon: 'inventory',
-    link: 'http://localhost:9000/#/delivery'
   },
 ];
 

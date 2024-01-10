@@ -1,9 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page>
-      <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="300">
+      <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="350">
         <div class="q-ma-lg row justify-between">
-          <div class="text-subtitle2">Add Item</div>
+          <div v-if="isEdit == false" class="text-subtitle2">Add Item</div>
+          <div v-if="isEdit == true" class="text-subtitle2">Edit Item</div>
           <q-btn icon="close" flat round dense size="sm" @click="handleClick"></q-btn>
         </div>
 
@@ -54,7 +55,7 @@
           <q-btn v-if="!leftDrawerOpen" outline icon="add" style="color: #9e9e9e;" label="Add" size="sm"
             @click="handleClick"></q-btn>
         </div>
-        <WhiteTable :title="pageTitle"/>
+        <WhiteTable :title="pageTitle" @editData="handleEditData"/>
       </q-page-container>
     </q-page>
   </q-layout>
@@ -64,14 +65,23 @@
 import { defineComponent, ref } from 'vue';
 import WhiteTable from '../../components/Table/WhiteTable.vue';
 
+const leftDrawerOpen = ref(false);
+const isEdit = ref(false);
+
 export default defineComponent({
   name: 'IndexPage',
   components: {
     WhiteTable,
   },
+  methods: {
+    handleEditData(data: any) {
+      isEdit.value = data;
+      leftDrawerOpen.value = data;
+      console.log(data);
+    }
+  },
   setup() {
     const obj = ref({});
-    const leftDrawerOpen = ref(false);
     const name = ref(null);
     const description = ref(null);
     const amount = ref(null);
@@ -83,6 +93,7 @@ export default defineComponent({
     const handleClick = () => {
       // Your click event logic goes here
       console.log('Button clicked!');
+      isEdit.value = false;
       leftDrawerOpen.value = !leftDrawerOpen.value
     };
 
@@ -100,7 +111,8 @@ export default defineComponent({
       isExchange,
       handleClick,
       onSubmit,
-      pageTitle: 'item'
+      pageTitle: 'item',
+      isEdit
     };
   },
 });

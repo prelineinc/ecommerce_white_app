@@ -3,19 +3,21 @@
     <q-page>
       <q-drawer side="right" v-model="leftDrawerOpen" bordered :width="350">
         <div class="q-mx-md row justify-between">
-          <div v-if="isEdit == false" class="text-subtitle2">Add User</div>
-          <div v-if="isEdit == true" class="text-subtitle2">Edit User</div>
+          <div v-if="isEdit == false" class="text-subtitle2">Add Order</div>
+          <div v-if="isEdit == true" class="text-subtitle2">Edit Order</div>
           <q-btn icon="close" flat round dense size="sm" @click="handleClick"></q-btn>
         </div>
         <div class="q-ma-md">
           <q-form @submit.prevent="onSubmit">
             <q-input filled v-model="name" label="Full Name*" lazy-rules
               :rules="[val => val && val.length > 0 || 'Please Enter Name']"></q-input>
-            <q-input filled v-model="phonenumber" label="Phone Number*" lazy-rules
+            <q-input filled v-model="username" label="User Name*" lazy-rules
               :rules="[val => val && val.length > 0 || 'Please Enter Phonenumber']"></q-input>
-            <q-input filled v-model="email" label="Email*" lazy-rules
+            <q-input filled v-model="address" label="Address*" lazy-rules
               :rules="[val => val && val.length > 0 || 'Please Enter Email']"></q-input>
-            <q-select filled v-model="usertype" :options="options" label="User Type"></q-select>
+              <q-input filled v-model="total" label="Total Amount*" lazy-rules
+              :rules="[val => val && val.length > 0 || 'Please Enter Email']"></q-input>
+              <q-select filled v-model="count" :options="options" label="Total Count"></q-select>
             <div class="q-my-md">
               <q-btn class="full-width" label="Submit" type="submit" color="primary"></q-btn>
             </div>
@@ -25,7 +27,7 @@
       <q-page-container class="q-my-md">
         <div class="q-mr-md row" style="display: flex; justify-content: space-between;">
           <div class="text-h6 q-mx-md">
-            User List
+            Order List
           </div>
 
           <q-btn v-if="!leftDrawerOpen" outline icon="add" style="color: #9e9e9e;" label="Add" size="sm"
@@ -45,7 +47,7 @@ const leftDrawerOpen = ref(false);
 const isEdit = ref(false);
 
 export default defineComponent({
-  name: 'UserPage',
+  name: 'OrderPage',
   components: {
     WhiteTable
   },
@@ -60,10 +62,10 @@ export default defineComponent({
 
   setup() {
     const name = ref(null);
-    const phonenumber = ref(null);
-    const email = ref(null);
-    const usertype = ref(null);
-    const filter = ref('')
+    const username = ref(null);
+    const address = ref(null);
+    const total = ref(null);
+    const count = ref(null)
 
 
     const handleClick = () => {
@@ -76,10 +78,10 @@ export default defineComponent({
       console.log('submit');
     }
     const options = [
-      'Admin', 'User'
+      '1', '2', '3', '4', '5'
     ]
 
-    return { leftDrawerOpen, name, phonenumber, email, filter, usertype, options, handleClick, onSubmit, pageTitle: 'user', isEdit };
+    return { leftDrawerOpen, name, username, address, total, count, options, handleClick, onSubmit, pageTitle: 'order', isEdit };
   },
 
 })
