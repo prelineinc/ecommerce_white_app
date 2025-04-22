@@ -1,0 +1,154 @@
+/* src/style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --pl-c-white: #ffffff;
+  --pl-c-white-soft: #f8f8f8;
+  --pl-c-white-mute: #f2f2f2;
+
+  --pl-c-black: #181818;
+  --pl-c-black-soft: #222222;
+  --pl-c-black-mute: #282828;
+
+  --pl-c-red: #ea1f33;
+  --pl-c-green: #1ab537;
+  --pl-c-blue: #088ac4;
+  --pl-c-yellow: #ffda00;
+  --pl-c-indgo: #253036;
+
+  --pl-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --pl-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --pl-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --pl-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --pl-c-text-light-1: var(--pl-c-blue);
+  --pl-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --pl-c-text-dark-1: var(--pl-c-white);
+  --pl-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--pl-c-white);
+  --color-background-soft: var(--pl-c-white-soft);
+  --color-background-mute: var(--pl-c-white-mute);
+
+  --color-border: var(--pl-c-divider-light-2);
+  --color-border-hover: var(--pl-c-divider-light-1);
+
+  --color-heading: var(----pl-c-black-soft);
+  --color-text: var(----pl-c-black-soft);
+
+  --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* :root {
+    --color-background: var(--pl-c-black);
+    --color-background-soft: var(--pl-c-black-soft);
+    --color-background-mute: var(--pl-c-black-mute);
+
+    --color-border: var(--pl-c-divider-dark-2);
+    --color-border-hover: var(--pl-c-divider-dark-1);
+
+    --color-heading: var(--pl-c-text-dark-1);
+    --color-text: var(--pl-c-text-dark-2);
+  } */
+
+  :root {
+    --color-background: var(--pl-c-white);
+    --color-background-soft: var(--pl-c-white-soft);
+    --color-background-mute: var(--pl-c-white-mute);
+  
+    --color-border: var(--pl-c-divider-light-2);
+    --color-border-hover: var(--pl-c-divider-light-1);
+  
+    --color-heading: var(----pl-c-black-soft);
+    --color-text: var(----pl-c-black-soft);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+swiper-container {
+  --swiper-theme-color: var(--pl-c-black) !important;
+}
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  width: var(--swiper-navigation-size);
+  height: var(--swiper-navigation-size);
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+swiper-container::part(pagination) {
+  bottom: 0;
+}
+swiper-container::part(bullet) {
+  bottom: 0;
+  border: 1px solid rgb(255 255 255 / 100%);
+}
+swiper-container::part(pagination) {
+  bottom: 0;
+}
+
+.separator {
+  display: block;
+  height: 0;
+  border-bottom: 1px solid #eee;
+}
+.separator.separator-content {
+  display: flex;
+  align-items: center;
+  border-bottom: 0;
+  text-align: center;
+}
+.separator.separator-content::after,
+.separator.separator-content::before {
+  content: ' ';
+  width: 50%;
+  border-bottom: 1px solid #eee;
+}
+.separator.separator-content::before {
+  margin-right: 1.25rem;
+}
+.separator.separator-content::after {
+  margin-left: 1.25rem;
+}
